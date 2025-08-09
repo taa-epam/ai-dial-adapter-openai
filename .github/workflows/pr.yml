@@ -6,7 +6,7 @@ on:
 
 jobs:
   run_tests:
-    uses: taa-epam/ai-dial-ci/.github/workflows/python_docker_pr.yml@2.4.1
+    uses: taa-epam/ai-dial-ci/.github/workflows/python_docker_pr.yml@5e27c0b18fb57e87c7b1e51a2571e425fdc93f13
     secrets:
       GPR_USERNAME: ${{ secrets.GPR_USERNAME }}
       GPR_PASSWORD: ${{ secrets.GPR_PASSWORD }}
