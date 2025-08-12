@@ -2,6 +2,13 @@ FROM python:3.11-alpine AS builder
 
 RUN apk update && apk upgrade --no-cache libcrypto3 libssl3
 RUN apk add --no-cache alpine-sdk linux-headers libffi-dev openblas-dev cmake cargo rust
+
+ENV PIP_PREFER_BINARY=1
+ENV PIP_ONLY_BINARY=:all:
+# Fail if wheel not available
+
+RUN pip install --upgrade pip wheel -vvv
+
 RUN pip install poetry==2.1.1
 
 WORKDIR /app
@@ -9,7 +16,7 @@ WORKDIR /app
 # Install split into two steps (the dependencies and the sources)
 # in order to leverage the Docker caching
 COPY pyproject.toml poetry.lock poetry.toml ./
-RUN poetry install --no-interaction --no-ansi --no-cache --no-root \
+RUN poetry install -vvv --no-interaction --no-ansi --no-cache --no-root \
   --no-directory --only main
 
 # Download tiktoken model encodings
