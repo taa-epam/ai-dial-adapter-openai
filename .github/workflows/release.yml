@@ -6,7 +6,7 @@ on:
 
 jobs:
   release:
-    uses: taa-epam/ai-dial-ci/.github/workflows/python_docker_release.yml@f35b17df28f9a32ea75e80c8449e6dc3a7f75aa1
+    uses: taa-epam/ai-dial-ci/.github/workflows/python_docker_release.yml@455ef2441d6e6624b35097456704b0a181ea612f
     secrets: inherit
     strategy:
       fail-fast: false # Let all builds finish
