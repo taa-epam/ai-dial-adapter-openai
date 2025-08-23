@@ -33,3 +33,4 @@ jobs:
       dockerhub-image-name: ltaa/ai-dial-adaoter-openai
       ort-bypassed: "${{ matrix.ort-bypassed }}"
       trivy-enabled: "${{ matrix.trivy-enabled }}"
+
